@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Lyrics Overlay</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="drag-bar">
+      <span id="now-playing-label"></span>
+      <div id="drag-controls">
+        <button id="settings-btn" title="Settings">⚙</button>
+      </div>
+    </div>
+
+    <div id="lyrics-container"></div>
+
+    <div id="settings-panel" class="hidden">
+      <div class="settings-row">
+        <label for="lineCount">Lines shown</label>
+        <input type="range" id="lineCount" min="1" max="9" step="1" />
+        <span id="lineCountVal"></span>
+      </div>
+      <div class="settings-row">
+        <label for="opacity">Background opacity</label>
+        <input type="range" id="opacity" min="0" max="0.8" step="0.05" />
+        <span id="opacityVal"></span>
+      </div>
+      <div class="settings-row">
+        <label for="blur">Background blur</label>
+        <input type="range" id="blur" min="0" max="30" step="1" />
+        <span id="blurVal"></span>
+      </div>
+      <div class="settings-row">
+        <label for="fontSize">Font size</label>
+        <input type="range" id="fontSize" min="14" max="36" step="1" />
+        <span id="fontSizeVal"></span>
+      </div>
+      <div class="settings-row checkbox-row">
+        <label for="showTrackInfo">Show track name</label>
+        <input type="checkbox" id="showTrackInfo" />
+      </div>
+
+      <hr />
+
+      <div class="settings-row">
+        <label for="spotifyClientId">Spotify Client ID</label>
+        <input type="text" id="spotifyClientId" placeholder="paste from developer.spotify.com" />
+      </div>
+      <div class="settings-row">
+        <button id="spotifyConnectBtn">Connect Spotify</button>
+        <button id="spotifyDisconnectBtn">Disconnect</button>
+        <span id="spotifyStatus"></span>
+      </div>
+
+      <hr />
+      <div class="hotkeys">
+        <div><kbd>Ctrl+Alt+L</kbd> show/hide overlay</div>
+        <div><kbd>Ctrl+Alt+K</kbd> toggle click-through</div>
+        <div><kbd>Ctrl+Alt+Q</kbd> quit</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
