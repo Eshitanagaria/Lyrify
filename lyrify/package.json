@@ -1,15 +1,32 @@
 {
   "name": "lyrify",
   "version": "1.0.0",
-  "description": "Lyrify — a translucent, karaoke-style synced lyrics overlay for Spotify and YouTube",
+  "description": "Translucent karaoke-style lyrics overlay for Spotify and YouTube",
+  "author": "Nandinee",
+  "license": "MIT",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "dependencies": {
     "ws": "^8.18.0"
   },
   "devDependencies": {
-    "electron": "^32.0.0"
+    "electron": "^32.0.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.nandinee.lyrify",
+    "productName": "Lyrify",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.music",
+      "arch": ["universal"]
+    }
   }
 }
