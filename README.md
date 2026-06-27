@@ -1,6 +1,6 @@
 # 🎤 Lyrify
 
-A translucent, draggable, **karaoke-style lyrics overlay** that floats above everything else on your screen and follows whatever's playing — Spotify (app or web player) or YouTube.
+A translucent, draggable, **karaoke-style lyrics overlay** that floats above everything else on your screen and follows whatever's playing on Spotify (app or web player) or YouTube.
 
 No solid background. No clicking back and forth. Just lyrics, synced, sitting quietly on top of whatever you're doing.
 
@@ -10,19 +10,19 @@ No solid background. No clicking back and forth. Just lyrics, synced, sitting qu
 
 ## ✨ Features
 
-- 🪟 Translucent, frosted-glass overlay — stays on top of every app, doesn't need re-clicking
-- 🎶 Works with **Spotify** (desktop app *and* web player, same mechanism) **and YouTube**
-- 🎤 Karaoke-style line-fill highlighting synced to playback position
-- 🎨 Pick your own text color and highlight color
-- 📏 Choose how many lines of lyrics are visible at once (1–9)
-- 🖱️ Click-through mode — interact with whatever's behind it without moving the overlay
-- ⌨️ Global hotkeys to show/hide, toggle click-through, and quit
-- 🆓 Free lyrics database (lrclib.net) — no scraping, no paid API
+-  Translucent, frosted-glass overlay that stays on top of every app, doesn't need re-clicking
+-  Works with **Spotify** (desktop app *and* web player, same mechanism) **and YouTube**
+-  Karaoke-style line-fill highlighting synced to playback position
+-  Pick your own text color and highlight color
+-  Choose how many lines of lyrics are visible at once (1–9)
+-  Click-through mode which lets you interact with whatever's behind it without moving the overlay
+-  Global hotkeys to show/hide, toggle click-through, and quit
+-  Free lyrics database (lrclib.net) so no scraping, no paid API
 
 ## ⚡ Quick start
 
 ```bash
-git clone https://github.com/your-username/Lyrify.git
+git clone https://github.com/Eshitanagaria/Lyrify.git
 cd Lyrify/lyrify
 npm install
 npm start
