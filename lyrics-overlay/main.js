@@ -132,12 +132,20 @@ async function pollSpotify() {
       fetchedAtMs: Date.now(),
     };
     state.spotify.lastError = null;
+    if (state.spotify.rateLimitedUntil) {
+      state.spotify.rateLimitedUntil = 0;
+      cfg.spotifyRateLimitedUntil = 0;
+      config.save(cfg);
+    }
   } catch (e) {
     if (e.code === 'RATE_LIMITED') {
       const waitMs = Math.max(5000, (e.retryAfterSec || 5) * 1000);
       state.spotify.rateLimitedUntil = Date.now() + waitMs;
-      state.spotify.lastError = `Rate limited by Spotify — retrying in ${Math.round(waitMs / 1000)}s`;
-      console.error(`[Spotify] 429 rate limited — backing off ${Math.round(waitMs / 1000)}s`);
+      cfg.spotifyRateLimitedUntil = state.spotify.rateLimitedUntil;
+      config.save(cfg);
+      const waitLabel = waitMs >= 60000 ? `${Math.ceil(waitMs / 60000)}m` : `${Math.round(waitMs / 1000)}s`;
+      state.spotify.lastError = `Rate limited by Spotify — retrying in ${waitLabel}`;
+      console.error(`[Spotify] 429 rate limited — backing off ${waitLabel}`);
     } else {
       console.error('[Spotify] poll failed:', e.message);
       state.spotify.lastError = e.message;
@@ -375,6 +383,7 @@ function registerIpc() {
 
 app.whenReady().then(() => {
   cfg = config.load();
+  state.spotify.rateLimitedUntil = cfg.spotifyRateLimitedUntil || 0;
   createWindow();
   registerIpc();
   startBridgeServer();

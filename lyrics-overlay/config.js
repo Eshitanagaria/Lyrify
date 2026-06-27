@@ -12,6 +12,7 @@ const DEFAULTS = {
   accentColor: '#1ed760',
   spotifyClientId: '',
   spotifyRefreshToken: null,
+  spotifyRateLimitedUntil: 0,
 };
 
 function configPath() {
